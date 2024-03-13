@@ -5,6 +5,7 @@
 /public/storage
 /storage/*.key
 /vendor
+.gitLog.txt
 .env
 .env.backup
 .env.production
