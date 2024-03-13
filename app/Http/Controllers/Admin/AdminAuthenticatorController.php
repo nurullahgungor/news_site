@@ -10,4 +10,8 @@ class AdminAuthenticatorController extends Controller
     public function login(){
         return view('admin.auth.login');
     }
+
+    public function handleLogin(Request $request){
+        dd($request->all());
+    }
 }
