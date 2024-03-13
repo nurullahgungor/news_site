@@ -59,7 +59,9 @@
                                             Please fill in your email
                                         </div>
                                     </div>
-
+                                    @error('email')
+                                        <code>{{ $message }}</code>
+                                    @enderror
                                     <div class="form-group">
                                         <div class="d-block">
                                             <label for="password" class="control-label">Password</label>
