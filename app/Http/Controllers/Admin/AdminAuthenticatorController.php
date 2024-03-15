@@ -51,7 +51,7 @@ class AdminAuthenticatorController extends Controller
         $admin->save();
         Mail::to($request->email)->send(new AdminSendForgotPasswordMail($token, $request->email));
 
-        return redirect()->back()->with('success', __('admin.A mail has been sent to your email address please check!'));
+        return redirect()->back()->with('success', __('A mail has been sent to your email address please check!'));
 
     }
 
