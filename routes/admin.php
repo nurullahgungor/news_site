@@ -19,15 +19,17 @@ Route::group(['prefix'=> 'admin' , 'as' => 'admin.'], function(){
     Route::post('logout', [AdminAuthenticatorController::class, 'logout'])
         ->name('logout');
 
-    /* Reset Password */
+    /* Forgot Password */
     Route::get('forgot-password', [AdminAuthenticatorController::class, 'forgotPassword'])
         ->name('forgotPassword');
     Route::post('forgot-password', [AdminAuthenticatorController::class, 'handleForgotPassword'])
         ->name('forgotPassword.send');
 
-
+    /* Reset Password */
     Route::get('reset-password/{token}', [AdminAuthenticatorController::class, 'resetPassword'])
         ->name('resetPassword');
+    Route::post('reset-password', [AdminAuthenticatorController::class, 'handleResetPassword'])
+        ->name('resetPassword.send');
 
 
     // middleware: admin

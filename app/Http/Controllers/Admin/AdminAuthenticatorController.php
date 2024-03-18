@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\AdminResetPasswordRequest;
 use App\Models\Admin;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -58,6 +59,22 @@ class AdminAuthenticatorController extends Controller
     public function resetPassword($token)
     {
         return view('admin.auth.reset-password', compact('token'));
+    }
+
+    public function handleResetPassword(AdminResetPasswordRequest $request){
+        $admin = Admin::where(['email' => $request->email, 'remember_token' => $request->token ])->first();
+
+        if(!$admin){
+            return back()->with('error', 'token is invalid');
+        }
+
+        $admin->password = bcrypt($request->password);
+        $admin->remember_token = null;
+        $admin -> save();
+
+
+        return redirect()->route('admin.login')->with('success', 'password reset successfull');
+
     }
 
 }
