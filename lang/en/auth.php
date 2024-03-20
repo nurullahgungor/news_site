@@ -17,4 +17,9 @@ return [
     'password' => 'The provided password is incorrect.',
     'throttle' => 'Too many login attempts. Please try again in :seconds seconds.',
 
+    //Forgot Password View
+    'forgotPassword' => 'Forgot Password',
+    'sendLink' => 'We will send a link to reset your password',
+
+
 ];

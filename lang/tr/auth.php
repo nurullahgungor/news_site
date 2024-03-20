@@ -17,4 +17,8 @@ return [
     'password' => 'girilen şifre yanlış.',
     'throttle' => 'Çok fazla giriş isteği yapıldı. Lütfen bekleyiniz:seconds seconds.',
 
+
+    'forgotPassword' => 'Şifremi Unuttum',
+    'sendLink' => 'Şifrenizi sıfırlayabilmeniz için size bir link yollayacağız!',
+
 ];
