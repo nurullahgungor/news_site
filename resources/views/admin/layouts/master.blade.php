@@ -39,9 +39,7 @@
             @include('admin.layouts.sidebar')
 
             <!-- Main Content -->
-            <div class="main-content">
-                @yield('content')
-            </div>
+            @yield('content')
         </div>
     </div>
 
