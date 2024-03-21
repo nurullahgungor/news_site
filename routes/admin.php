@@ -2,30 +2,29 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Admin\AdminAuthenticatorController;
 use App\Http\Controllers\Admin\DashboardController;
-
-
+use App\Http\Controllers\Admin\ProfileController;
 
 Route::group(['prefix'=> 'admin' , 'as' => 'admin.'], function(){
-    /* Login */
+    // Login
     Route::get('login', [AdminAuthenticatorController::class, 'login'])
         ->name('login');
     Route::post('login', [AdminAuthenticatorController::class, 'handleLogin'])
         ->name('handleLogin');
 
 
-    /* Logout */
+    // Logout
     Route::get('logout', [AdminAuthenticatorController::class, 'logout'])
         ->name('logout');
     Route::post('logout', [AdminAuthenticatorController::class, 'logout'])
         ->name('logout');
 
-    /* Forgot Password */
+    // Forgot Password
     Route::get('forgot-password', [AdminAuthenticatorController::class, 'forgotPassword'])
         ->name('forgotPassword');
     Route::post('forgot-password', [AdminAuthenticatorController::class, 'handleForgotPassword'])
         ->name('forgotPassword.send');
 
-    /* Reset Password */
+    // Reset Password
     Route::get('reset-password/{token}', [AdminAuthenticatorController::class, 'resetPassword'])
         ->name('resetPassword');
     Route::post('reset-password', [AdminAuthenticatorController::class, 'handleResetPassword'])
@@ -35,8 +34,15 @@ Route::group(['prefix'=> 'admin' , 'as' => 'admin.'], function(){
     // middleware: admin
     Route::middleware('admin')->group(function(){
 
+        //Dashboard
         Route::get('dashboard', [DashboardController::class,'index'])
-        ->name('dashboard');
+            ->name('dashboard');
+
+
+        //Profile Routes
+        Route::group(['prefix' => 'profile', 'as' => 'profile.'], function(){
+            Route::get('index', [ProfileController::class, 'index']);
+        });
 
     });
 });
