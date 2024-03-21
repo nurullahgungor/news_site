@@ -40,9 +40,8 @@ Route::group(['prefix'=> 'admin' , 'as' => 'admin.'], function(){
 
 
         //Profile Routes
-        Route::group(['prefix' => 'profile', 'as' => 'profile.'], function(){
-            Route::get('/', [ProfileController::class, 'index']);
-        });
+            Route::get('profile', [ProfileController::class, 'index'])
+            ->name('profile');
 
     });
 });
