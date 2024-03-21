@@ -6,12 +6,9 @@ use App\Http\Controllers\Admin\ProfileController;
 
 Route::group(['prefix'=> 'admin' , 'as' => 'admin.'], function(){
 
-    /**
-     * Route::get('/', function(){
-    *        return redirect() -> route('admin.dashboard');
-    *});
-
-     */
+     Route::get('/', function(){
+            return redirect() -> route('admin.dashboard');
+    });
     // Login
     Route::get('login', [AdminAuthenticatorController::class, 'login'])
         ->name('login');
