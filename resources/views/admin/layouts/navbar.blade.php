@@ -22,7 +22,7 @@
                 <a href="{{ route('admin.activities') }}" class="dropdown-item has-icon">
                     <i class="fas fa-bolt"></i> Activities
                 </a>
-                <a href="features-settings.html" class="dropdown-item has-icon">
+                <a href="{{ route('admin.settings') }}" class="dropdown-item has-icon">
                     <i class="fas fa-cog"></i> Settings
                 </a>
                 <div class="dropdown-divider">

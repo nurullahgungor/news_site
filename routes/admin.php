@@ -51,5 +51,9 @@ Route::group(['prefix'=> 'admin' , 'as' => 'admin.'], function(){
         Route::get('activities', function(){
             return view('admin.activities');
         })->name('activities');
+        // settings
+        Route::get('settings', function(){
+            return view('admin.settings');
+        })->name('settings');
     });
 });
