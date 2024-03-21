@@ -44,8 +44,12 @@ Route::group(['prefix'=> 'admin' , 'as' => 'admin.'], function(){
 
 
         //Profile Routes
-            Route::get('profile', [ProfileController::class, 'index'])
+        Route::get('profile', [ProfileController::class, 'index'])
             ->name('profile');
 
+        // Activities
+        Route::get('activities', function(){
+            return view('admin.activities');
+        })->name('activities');
     });
 });
